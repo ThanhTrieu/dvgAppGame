@@ -4,6 +4,9 @@ import DevscreensButton from '../../ignite/DevScreens/DevscreensButton.js'
 
 import { Images } from '../Themes'
 
+// import { Container, Header } from 'native-base';
+// import { Col, Row, Grid } from 'react-native-easy-grid';
+
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
@@ -20,12 +23,19 @@ export default class LaunchScreen extends Component {
           <View style={styles.section} >
             <Image source={Images.ready} />
             <Text style={styles.sectionText}>
-              This probably isn't what your app is going to look like. Unless your designer handed you this screen and, in that case, congrats! You're ready to ship. For everyone else, this is where you'll see a live preview of your fully functioning app using Ignite.
+              I love you .
             </Text>
           </View>
 
           <DevscreensButton />
         </ScrollView>
+        {/* <Container>
+          <Header />
+            <Grid>
+              <Col style={{ backgroundColor: '#635DB7', height: 200 }}></Col>
+              <Col style={{ backgroundColor: '#00CE9F', height: 200 }}></Col>
+            </Grid>
+        </Container> */}
       </View>
     )
   }
