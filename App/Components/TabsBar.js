@@ -7,17 +7,23 @@ import {
   Tab, 
   Tabs, 
   ScrollableTab,
+  TabHeading,
   Text,
-  Content
+  Content,
+  Icon
 } from 'native-base';
 
 
 export default class TabsBar extends Component {
   render() {
     return (
-      <View style={{backgroundColor:'#ccc'}}>
-        <Tabs renderTabBar={()=> <ScrollableTab />}>
-          <Tab heading="Tab1">
+      <View>
+        <Tabs transparent renderTabBar={()=> <ScrollableTab />}>
+          <Tab  heading={ 
+            <TabHeading style={{ backgroundColor: "#FFE6F0" }}><Icon name="home"/>
+                <Text>Home</Text>
+            </TabHeading>}
+          >
             <View><Text>Tab1</Text></View>
           </Tab>
           <Tab heading="Tab2">

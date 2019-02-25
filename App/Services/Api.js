@@ -2,7 +2,8 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+// http://10.0.2.2:8000/api/v1/
+const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   // ------
   // STEP 1
   // ------
@@ -34,10 +35,11 @@ const create = (baseURL = 'https://api.github.com/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getRoot = () => api.get('')
-  const getRate = () => api.get('rate_limit')
-  const getUser = (username) => api.get('search/users', {q: username})
-
+  //const getRoot = () => api.get('')
+  //const getRate = () => api.get('rate_limit')
+  //const getUser = (username) => api.get('search/users', {q: username}),
+  //const getGroupBox = (id, limit) => api.get('group-box-data', {id : id, limit : limit}) 
+  const getGroupBox = (id,key) => api.get('weather', {q : id, key: key}) 
   // ------
   // STEP 3
   // ------
@@ -52,9 +54,10 @@ const create = (baseURL = 'https://api.github.com/') => {
   //
   return {
     // a list of the API functions from step 2
-    getRoot,
-    getRate,
-    getUser
+    //getRoot,
+    //getRate,
+    //getUser,
+    getGroupBox
   }
 }
 

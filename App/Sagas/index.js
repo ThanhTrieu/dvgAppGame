@@ -1,17 +1,18 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, take } from 'redux-saga/effects'
 import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
 
 /* ------------- Types ------------- */
 
-import { StartupTypes } from '../Redux/StartupRedux'
-import { GithubTypes } from '../Redux/GithubRedux'
-
+//import { StartupTypes } from '../Redux/StartupRedux'
+//import { GithubTypes } from '../Redux/GithubRedux'
+import { getTopPostsInGroupBoxTypes } from '../Redux/HomeTopFocusRedux'
 /* ------------- Sagas ------------- */
 
-import { startup } from './StartupSagas'
-import { getUserAvatar } from './GithubSagas'
+//import { startup } from './StartupSagas'
+//import { getUserAvatar } from './GithubSagas'
+import { getDataHomeTopFocusGroupBox } from './HomeTopFocusSaga'
 
 /* ------------- API ------------- */
 
@@ -24,9 +25,11 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 export default function * root () {
   yield all([
     // some sagas only receive an action
-    takeLatest(StartupTypes.STARTUP, startup),
+    //takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    //takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+
+    takeLatest(getTopPostsInGroupBoxTypes.GET_DATA_REQUEST, getDataHomeTopFocusGroupBox, api)
   ])
 }
