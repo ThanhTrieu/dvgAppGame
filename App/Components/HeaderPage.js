@@ -21,7 +21,7 @@ export default class HeaderPage extends Component {
 		//console.log(this.props);
 		return (
 			<View>
-				<Header style={styles.topHeader}>
+				{/* <Header style={styles.topHeader}>
 					<Body>
 						<Button transparent>
 							<IconFontAwesome style={styles.iconHeader} name='facebook-official' size={40} color='#4267B2' />
@@ -29,7 +29,7 @@ export default class HeaderPage extends Component {
 							<IconFontAwesome style={styles.iconHeader} name='youtube-square' size={40} color='#915D50' />
 						</Button>
 					</Body>
-				</Header>
+				</Header> */}
 				<Header style={styles.bottomHeader}>
 					<Left>
 						<Button transparent>

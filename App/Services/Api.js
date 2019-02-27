@@ -3,7 +3,7 @@ import apisauce from 'apisauce'
 
 // our "constructor"
 // http://10.0.2.2:8000/api/v1/
-const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
+const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
   // ------
   // STEP 1
   // ------
@@ -38,8 +38,8 @@ const create = (baseURL = 'http://api.openweathermap.org/data/2.5/') => {
   //const getRoot = () => api.get('')
   //const getRate = () => api.get('rate_limit')
   //const getUser = (username) => api.get('search/users', {q: username}),
-  //const getGroupBox = (id, limit) => api.get('group-box-data', {id : id, limit : limit}) 
-  const getGroupBox = (id,key) => api.get('weather', {q : id, key: key}) 
+  const getGroupBox = (id, limit) => api.get('group-box-data', {id : id, limit : limit}) 
+  //const getGroupBox = (id,key) => api.get('weather', {q : id, key: key}) 
   // ------
   // STEP 3
   // ------

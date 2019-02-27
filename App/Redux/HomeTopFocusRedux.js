@@ -17,21 +17,21 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   data: null,
   error: false,
-  fetching: true
+  fetching: false
 })
 
 /* ------------- Reducers ------------- */
 
 // getDataRequest
-export const requestData = (state) => state.merge({ fetching: false })
+export const requestData = (state) => state.merge({ fetching: true })
 
 // getDataSuccess
 export const successData = (state, { data }) => 
-  state.merge({ fetching: true, error: null, data })
+  state.merge({ fetching: false, error: null, data })
 
 // getDataFail
 export const failData = (state, {error}) => 
-  state.merge({ fetching: true, error })
+  state.merge({ fetching: false, error })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
