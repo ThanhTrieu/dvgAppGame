@@ -12,9 +12,14 @@ import getTopPostsInGroupBoxActions from '../Redux/HomeTopFocusRedux';
 import WelcomeLoading from '../Components/WelcomeScreen';
 
 class LaunchScreen extends Component {
+
+  componentDidMount() {
+    this.props.getDataTopFocus(1,3);
+  }
+
   render () {
     console.log(this.props)
-    if(this.props.dataTopFocus){
+    if(!this.props.fetching){
       return (
         <Container>
           <HeaderPage navigation={this.props.navigation} />
