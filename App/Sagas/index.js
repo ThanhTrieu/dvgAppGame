@@ -8,11 +8,13 @@ import DebugConfig from '../Config/DebugConfig'
 //import { StartupTypes } from '../Redux/StartupRedux'
 //import { GithubTypes } from '../Redux/GithubRedux'
 import { getTopPostsInGroupBoxTypes } from '../Redux/HomeTopFocusRedux'
+import { getTopGameByTagTypes } from '../Redux/HomeTopGameTagRedux'
 /* ------------- Sagas ------------- */
 
 //import { startup } from './StartupSagas'
 //import { getUserAvatar } from './GithubSagas'
 import { getDataHomeTopFocusGroupBox } from './HomeTopFocusSaga'
+import { getDataHomeTopGameTags } from './HomeTopGameTagSaga'
 
 /* ------------- API ------------- */
 
@@ -30,6 +32,7 @@ export default function * root () {
     // some sagas receive extra parameters in addition to an action
     //takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
 
-    takeLatest(getTopPostsInGroupBoxTypes.GET_DATA_REQUEST, getDataHomeTopFocusGroupBox, api)
+    takeLatest(getTopPostsInGroupBoxTypes.GET_DATA_REQUEST, getDataHomeTopFocusGroupBox, api),
+    takeLatest(getTopGameByTagTypes.GET_DATA_REQUEST_TAGS, getDataHomeTopGameTags, api),
   ])
 }

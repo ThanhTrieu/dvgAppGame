@@ -4,40 +4,40 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  getDataRequest: ['idGroupBox','limit'],
-  getDataSuccess: ['data'],
-  getDataFail: ['error']
+  getDataRequestTags: ['idGroupBox','limit'],
+  getDataSuccessTags: ['data'],
+  getDataFailTags: ['error']
 })
 
-export const getTopPostsInGroupBoxTypes = Types
+export const getTopGameByTagTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  data: null,
-  error: false,
-  fetching: false
+  fetchingTagGame: false,
+  errorTagGame: false,
+  data: null
 })
 
 /* ------------- Reducers ------------- */
 
 // getDataRequest
-export const requestData = (state) => state.merge({ fetching: true })
+export const requestData = (state) => state.merge({ fetchingTagGame: true })
 
 // getDataSuccess
 export const successData = (state, { data }) =>
-  state.merge({ fetching: false, error: null, data })
+  state.merge({ fetchingTagGame: false, errorTagGame: null, data })
 
 // getDataFail
-export const failData = (state, {error}) => 
-  state.merge({ fetching: false, error })
+export const failData = (state, {errorTagGame}) => 
+  state.merge({ fetchingTagGame: false, errorTagGame })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.GET_DATA_REQUEST]: requestData,
-  [Types.GET_DATA_SUCCESS]: successData,
-  [Types.GET_DATA_FAIL]: failData
+  [Types.GET_DATA_REQUEST_TAGS]: requestData,
+  [Types.GET_DATA_SUCCESS_TAGS]: successData,
+  [Types.GET_DATA_FAIL_TAGS]: failData
 })
 

@@ -1,5 +1,18 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import jwt from 'react-native-jwt-io'
+
+const SERECT_KEY = 'dvg-react-native-v1';
+const tokenJwt = jwt.encode(
+  {
+    iss: 'nguyenthanhtrieu90@gmail.com',
+    exp: new Date().getTime() + 3600, // expiration date, required, in ms, absolute to 1/1/1970
+    additional: 'payload',
+  },
+  SERECT_KEY
+)
+
+//console.log(tokenJwt);
 
 // our "constructor"
 // http://10.0.2.2:8000/api/v1/
@@ -15,7 +28,8 @@ const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
     baseURL,
     // here are some default headers
     headers: {
-      'Cache-Control': 'no-cache'
+      'Cache-Control': 'no-cache',
+      'Authorization': tokenJwt
     },
     // 10 second timeout...
     timeout: 10000
@@ -39,6 +53,9 @@ const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
   //const getRate = () => api.get('rate_limit')
   //const getUser = (username) => api.get('search/users', {q: username}),
   const getGroupBox = (id, limit) => api.get('group-box-data', {id : id, limit : limit}) 
+  const getTopGameByTag = (id, limit) => api.get('top-tag-game', {id : id, limit : limit}) 
+  const getDataHomeStream = (time, id) => api.get('home-stream-game', {time: time, id: id})
+
   //const getGroupBox = (id,key) => api.get('weather', {q : id, key: key}) 
   // ------
   // STEP 3
@@ -57,7 +74,9 @@ const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
     //getRoot,
     //getRate,
     //getUser,
-    getGroupBox
+    getGroupBox,
+    getTopGameByTag,
+    getDataHomeStream
   }
 }
 

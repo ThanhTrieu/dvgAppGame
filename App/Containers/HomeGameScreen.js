@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-//import { View, Text, Dimensions  } from 'react-native'
+import { ScrollView  } from 'react-native'
+
 // components
-import { Container } from 'native-base'
-//import { Col, Row, Grid } from 'react-native-easy-grid'
-
-//import Image from 'react-native-scalable-image'
-
 import HotTopNews from '../Components/HomeScreen/HotTopNews'
+import TopGame from '../Components/HomeScreen/TopGame'
+import HomeStream from '../Components/HomeScreen/HomeStream'
 
 export default class HomeGameScreen extends Component {
   constructor(props){
@@ -14,10 +12,13 @@ export default class HomeGameScreen extends Component {
   }
 
   render () {
+    //console.log(this.props)
     return (
-      <Container>
+      <ScrollView> 
         <HotTopNews props={this.props} />
-      </Container>
+        <TopGame props={this.props} />
+        {/* <HomeStream props={this.props} /> */}
+      </ScrollView>
     )
   }
 }

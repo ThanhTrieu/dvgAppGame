@@ -10,6 +10,7 @@ export const reducers = combineReducers({
   //github: require('./GithubRedux').reducer,
   //search: require('./SearchRedux').reducer,
   topGroupBox: require('./HomeTopFocusRedux').reducer,
+  topGameTag: require('./HomeTopGameTagRedux').reducer,
 })
 
 export default () => {
