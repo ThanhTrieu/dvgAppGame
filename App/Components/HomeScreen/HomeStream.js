@@ -85,7 +85,7 @@ export default class HomeStream extends Component {
     //
     // If nextUrl is set, that means there is more data. If nextUrl is unset,
     // then there is no existing data, and you should fetch from scratch.
-    this.props.dispatch(fetchMoreContent(this.props.listData.nextUrl));
+    //this.props.dispatch(fetchMoreContent(this.props.listData.nextUrl));
   }
 
   render() {
@@ -93,7 +93,7 @@ export default class HomeStream extends Component {
       <ListView
         renderScrollComponent={props => <InfiniteScrollView {...props} />}
         dataSource={this.state.dataSource}
-        renderRow={}
+        renderRow={<ListViewRowsData {...props} />}
         refreshControl={this._renderRefreshControl()}
         canLoadMore={!!this.props.listData.nextUrl}
         onLoadMoreAsync={this._loadMoreContentAsync.bind(this)}

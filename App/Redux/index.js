@@ -11,6 +11,7 @@ export const reducers = combineReducers({
   //search: require('./SearchRedux').reducer,
   topGroupBox: require('./HomeTopFocusRedux').reducer,
   topGameTag: require('./HomeTopGameTagRedux').reducer,
+  homeStream: require('./HomeStreamRedux').reducer
 })
 
 export default () => {
