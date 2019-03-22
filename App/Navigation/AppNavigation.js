@@ -1,8 +1,9 @@
-import React from 'react';
-import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
-import LaunchScreen from '../Containers/LaunchScreen';
-import MenuDrawer from '../Containers/DrawerMenu/MainDrawerMenu';
-import SearchDrawer from '../Containers/DrawerMenu/SearchDrawerMenu';
+import React from 'react'
+import { createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation'
+import LaunchScreen from '../Containers/LaunchScreen'
+import MenuDrawer from '../Containers/DrawerMenu/MainDrawerMenu'
+import SearchDrawer from '../Containers/DrawerMenu/SearchDrawerMenu'
+import DetailNews from '../Containers/DetailGameScreen'
 
 
 import styles from './Styles/NavigationStyles';
@@ -17,7 +18,7 @@ const PrimaryNav = createStackNavigator({
   navigationOptions: {
     headerStyle: styles.header
   }
-});
+})
 
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
@@ -28,11 +29,14 @@ const MyDrawerNavigator = createDrawerNavigator({
   },
   Search: {
     screen: SearchDrawer
+  },
+  Detail: {
+    screen: DetailNews
   }
 },{
   drawerPosition: 'left',
   contentComponent: props => <MenuDrawer {...props} />
-});
+})
 
 
 const MainDrawerNavigator = createDrawerNavigator({
@@ -45,6 +49,6 @@ const MainDrawerNavigator = createDrawerNavigator({
     // drawerCloseRoute: 'DrawerRightClose',
     // drawerToggleRoute: 'DrawerRightToggle',
     // contentComponent: props => <SearchDrawer {...props} />
-});
+})
 
 export default createAppContainer(MainDrawerNavigator)

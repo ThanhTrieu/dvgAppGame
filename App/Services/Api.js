@@ -55,6 +55,7 @@ const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
   const getGroupBox = (id, limit) => api.get('group-box-data', {id : id, limit : limit}) 
   const getTopGameByTag = (id, limit) => api.get('top-tag-game', {id : id, limit : limit}) 
   const getDataHomeStream = (time, postids) => api.get('home-stream-game', {time: time, postids: postids})
+  const getDataDetailGame = (idPost) => api.get('detail-game', {idPost: idPost})
 
   //const getGroupBox = (id,key) => api.get('weather', {q : id, key: key}) 
   // ------
@@ -76,7 +77,8 @@ const create = (baseURL = 'http://10.0.2.2:8000/api/v1/') => {
     //getUser,
     getGroupBox,
     getTopGameByTag,
-    getDataHomeStream
+    getDataHomeStream,
+    getDataDetailGame
   }
 }
 

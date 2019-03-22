@@ -15,7 +15,7 @@ export default Creators
 /* ------------- Initial State ------------- */
 
 export const INITIAL_STATE = Immutable({
-  data: null,
+  data: [],
   error: false,
   fetchingHomeStream: false
 })
@@ -28,6 +28,7 @@ export const requestData = (state) => state.merge({ fetchingHomeStream: true })
 // getDataSuccess
 export const successData = (state, { data }) =>
   state.merge({ fetchingHomeStream: false, error: null, data })
+
 
 // getDataFail
 export const failData = (state, {error}) => 

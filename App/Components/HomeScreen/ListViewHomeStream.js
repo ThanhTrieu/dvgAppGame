@@ -24,7 +24,7 @@ import {
 } from 'native-base'
 import { Col, Row, Grid } from 'react-native-easy-grid'
 import Image from 'react-native-scalable-image'
-import InfiniteScrollView from 'react-native-infinite-scroll-view';
+import InfiniteScrollView from 'react-native-infinite-scroll-view'
 
 
 const ViewFeatured = ({ props }) => {
@@ -43,78 +43,72 @@ const ViewFeatured = ({ props }) => {
 export default class Homestreaming extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      onEndReachedCalledDuringMomentum: true
-    }
+    // this.state = {
+    //   onEndReachedCalledDuringMomentum: true
+    // }
   }
 
-  onEndReached = ({ distanceFromEnd }) => {
-    if(this.state.onEndReachedCalledDuringMomentum){
-      this.loadMoreDataSync();
+  onEndReached = () => {
+    //if(this.state.onEndReachedCalledDuringMomentum){
+      //console.log('AAAA')
+      //this.loadMoreDataSync();
       //this.setState({onEndReachedCalledDuringMomentum: true});
       //this.onEndReachedCalledDuringMomentum = true;
-    }
+    //}
   }
   
   loadMoreDataSync = () => {
     const date = new Date();
     const timeSteamp = date.getTime();
     const time = this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.lastTimes ? this.props.props.dataHomeStream.lastTimes : timeSteamp) : timeSteamp;
-    this.props.props.dataHomeStream = this.props.props.getMoreHomeStream(time, null);
+    this.props.props.getMoreHomeStream(time, null);
   }
 
   render () {
-    console.log(this.state);
     return(
-      <ScrollView>
-        <Content
-          style={{flex: 1}}
-          contentContainerStyle={{flex: 1}}
-        >
-          <View style={{ marginTop: 20, flex: 1 }}>
-            <List>
-              <FlatList
-                data={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.firstHomeStream ? this.props.props.dataHomeStream.firstHomeStream : [] ) : []}
-                keyExtractor={(item) => item.title}
-                renderItem={({ item, index }) => (
-                  <ListItem thumbnail>
-                    <Left>
-                      <Thumbnail square  source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }} />
-                    </Left>
-                    <Body>
-                      <Text note numberOfLines={2}>{item.title}</Text>
-                      <Text note numberOfLines={1}>{item.sapo}</Text>
-                    </Body>
-                  </ListItem>
-                )}
-              />
-            </List>
-          </View>
-          <ViewFeatured props={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.featuredStories ? this.props.props.dataHomeStream.featuredStories : [] ) : []} />
-          <View style={{ marginTop: 20, flex: 1 }}>
-            <List>
-              <FlatList
-                data={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.secondHomeStream ? this.props.props.dataHomeStream.secondHomeStream : [] ) : []}
-                keyExtractor={(item) => item.title}
-                onEndReached={this.onEndReached.bind(this)}
-                onEndReachedThreshold={1}
-                // onMomentumScrollBegin={() => { this.setState({onEndReachedCalledDuringMomentum: false}) }}
-                renderItem={({ item, index }) => (
-                  <ListItem thumbnail>
-                    <Left>
-                      <Thumbnail square  source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }} />
-                    </Left>
-                    <Body>
-                      <Text note numberOfLines={2}>{item.title}</Text>
-                      <Text note numberOfLines={1}>{item.sapo}</Text>
-                    </Body>
-                  </ListItem>
-                )}
-              />
-            </List>
-          </View> 
-        </Content>
-      </ScrollView>
+      <View style={{ marginTop: 20, flex: 1 }}>
+        <View style={{flex: 1 }}>
+          <List>
+            <FlatList
+              data={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.firstHomeStream ? this.props.props.dataHomeStream.firstHomeStream : [] ) : []}
+              keyExtractor={(item) => item.title}
+              renderItem={({ item, index }) => (
+                <ListItem thumbnail>
+                  <Left>
+                    <Thumbnail square  source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }} />
+                  </Left>
+                  <Body>
+                    <Text note numberOfLines={2}>{item.title}</Text>
+                    <Text note numberOfLines={1}>{item.sapo}</Text>
+                  </Body>
+                </ListItem>
+              )}
+            />
+          </List>
+        </View>
+        <ViewFeatured props={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.featuredStories ? this.props.props.dataHomeStream.featuredStories : [] ) : []} />
+        <View style={{flex: 1 }}>
+          <List>
+            <FlatList
+              data={this.props.props.dataHomeStream ? (this.props.props.dataHomeStream.secondHomeStream ? this.props.props.dataHomeStream.secondHomeStream : [] ) : []}
+              keyExtractor={(item) => item.title}
+              // onEndReached={this.onEndReached.bind(this)}
+              // onEndReachedThreshold={0.5}
+              renderItem={({ item, index }) => (
+                <ListItem thumbnail>
+                  <Left>
+                    <Thumbnail square  source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }} />
+                  </Left>
+                  <Body>
+                    <Text note numberOfLines={2}>{item.title}</Text>
+                    <Text note numberOfLines={1}>{item.sapo}</Text>
+                  </Body>
+                </ListItem>
+              )}
+            />
+          </List>
+        </View> 
+      </View>
     )
   }
 }

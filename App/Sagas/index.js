@@ -10,6 +10,7 @@ import DebugConfig from '../Config/DebugConfig'
 import { getTopPostsInGroupBoxTypes } from '../Redux/HomeTopFocusRedux'
 import { getTopGameByTagTypes } from '../Redux/HomeTopGameTagRedux'
 import { getDataHomeStreamTypes } from '../Redux/HomeStreamRedux'
+import { getDetailGameTypes } from '../Redux/DetailGameRedux'
 /* ------------- Sagas ------------- */
 
 //import { startup } from './StartupSagas'
@@ -17,6 +18,8 @@ import { getDataHomeStreamTypes } from '../Redux/HomeStreamRedux'
 import { getDataHomeTopFocusGroupBox } from './HomeTopFocusSaga'
 import { getDataHomeTopGameTags } from './HomeTopGameTagSaga'
 import { getDataHomeStreaming } from './HomeStreamSaga'
+import { getDataDetailGame } from './DetailGameSaga'
+
 
 /* ------------- API ------------- */
 
@@ -37,5 +40,6 @@ export default function * root () {
     takeLatest(getTopPostsInGroupBoxTypes.GET_DATA_REQUEST, getDataHomeTopFocusGroupBox, api),
     takeLatest(getTopGameByTagTypes.GET_DATA_REQUEST_TAGS, getDataHomeTopGameTags, api),
     takeLatest(getDataHomeStreamTypes.GET_HOME_STREAM_REQUEST, getDataHomeStreaming, api),
+    takeLatest(getDetailGameTypes.GET_DATA_REQUEST, getDataDetailGame, api),
   ])
 }

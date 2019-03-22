@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import { ScrollView  } from 'react-native'
+import { View  } from 'react-native'
 
 // components
 import HotTopNews from '../Components/HomeScreen/HotTopNews'
 import TopGame from '../Components/HomeScreen/TopGame'
-//import Homestreaming from '../Components/HomeScreen/HomeStream'
-import Homestreaming from '../Components/HomeScreen/ListViewHomeStream'
+import HomePaging from '../Components/HomeScreen/HomePagingFlatList'
 
 
 const isCloseToBottom = ({layoutMeasurement, contentOffset, contentSize}) => {
@@ -20,20 +19,13 @@ export default class HomeGameScreen extends Component {
   }
 
   render () {
+    //console.log(this.props)
     return (
-      <ScrollView
-        // onScroll={({nativeEvent}) => {
-        //   if (isCloseToBottom(nativeEvent)) {
-        //     //this.loadMoreDataSync();
-        //     console.log('AAAA')
-        //   }
-        // }}
-        // scrollEventThrottle={400}
-      > 
+      <View> 
         <HotTopNews props={this.props} />
         <TopGame props={this.props} />
-        <Homestreaming props={this.props} />
-      </ScrollView>
+        <HomePaging navigation={this.props.navigation} />
+      </View>
     )
   }
 }
