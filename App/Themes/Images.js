@@ -22,6 +22,12 @@ const images = {
   closeButton: require('../Images/Icons/close-button.png'),
   logoGame: require('../Images/Games/logo.png'),
   backGround: require('../Images/Games/bg.png'),
+  hot: require('../Images/Games/ic_whatshot.png'),
+  trending: require('../Images/Games/ic_trending_up.png'),
+  fresh: require('../Images/Games/ic_fiber_new.png'),
+  funny: require('../Images/Games/ic_tag_faces.png'),
+  movieAndTv: require('../Images/Games/ic_live_tv.png'),
+  sport: require('../Images/Games/ic_rowing.png'),
 }
 
 export default images

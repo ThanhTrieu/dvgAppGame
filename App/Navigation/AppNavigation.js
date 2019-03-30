@@ -10,7 +10,18 @@ import styles from './Styles/NavigationStyles';
 
 // Manifest of possible screens
 const PrimaryNav = createStackNavigator({
-  LaunchScreen: { screen: LaunchScreen }
+  LaunchScreen: { 
+    screen: LaunchScreen
+  },
+  Menu: {
+    screen: MenuDrawer,
+  },
+  Search: {
+    screen: SearchDrawer
+  },
+  Detail: {
+    screen: DetailNews
+  }
 }, {
   // Default config for all screens
   initialRouteName: 'LaunchScreen',
@@ -23,22 +34,13 @@ const PrimaryNav = createStackNavigator({
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {
     screen: PrimaryNav,
-  },
-  Menu: {
-    screen: MenuDrawer,
-  },
-  Search: {
-    screen: SearchDrawer
-  },
-  Detail: {
-    screen: DetailNews
   }
 },{
   drawerPosition: 'left',
   contentComponent: props => <MenuDrawer {...props} />
 })
 
-
+/*
 const MainDrawerNavigator = createDrawerNavigator({
   MainScreenLunch: {
     screen: MyDrawerNavigator,
@@ -50,5 +52,6 @@ const MainDrawerNavigator = createDrawerNavigator({
     // drawerToggleRoute: 'DrawerRightToggle',
     // contentComponent: props => <SearchDrawer {...props} />
 })
+*/
 
-export default createAppContainer(MainDrawerNavigator)
+export default createAppContainer(MyDrawerNavigator)

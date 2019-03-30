@@ -40,6 +40,6 @@ export default function * root () {
     takeLatest(getTopPostsInGroupBoxTypes.GET_DATA_REQUEST, getDataHomeTopFocusGroupBox, api),
     takeLatest(getTopGameByTagTypes.GET_DATA_REQUEST_TAGS, getDataHomeTopGameTags, api),
     takeLatest(getDataHomeStreamTypes.GET_HOME_STREAM_REQUEST, getDataHomeStreaming, api),
-    takeLatest(getDetailGameTypes.GET_DATA_REQUEST, getDataDetailGame, api),
+    takeLatest(getDetailGameTypes.GET_DATA_REQUEST_DETAIL, getDataDetailGame, api),
   ])
 }

@@ -137,6 +137,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-webview')
+    compile project(':react-native-udp')
+    compile project(':react-native-tcp')
+    compile project(':react-native-os')
+    compile project(':react-native-config')
     compile project(':react-native-randombytes')
     compile project(':react-native-device-info')
     compile project(':react-native-i18n')

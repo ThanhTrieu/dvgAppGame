@@ -7,7 +7,6 @@ export function * getDataHomeTopFocusGroupBox (api, payload) {
   const limit = payload.limit
   // make the call to the api
   const response = yield call(api.getGroupBox, id, limit)
-  //console.log(response)
   if(response.ok){
     yield put(HomeTopFocusActions.getDataSuccess(response.data))
     //console.log(response.data);

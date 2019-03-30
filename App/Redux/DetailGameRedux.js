@@ -4,9 +4,9 @@ import Immutable from 'seamless-immutable'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
-  getDataRequest: ['idPost'],
-  getDataSuccess: ['data'],
-  getDataFail: ['error']
+  getDataRequestDetail: ['idPost'],
+  getDataSuccessDetail: ['data'],
+  getDataFailDetail: ['error']
 })
 
 export const getDetailGameTypes = Types
@@ -17,27 +17,27 @@ export default Creators
 export const INITIAL_STATE = Immutable({
   data: null,
   error: false,
-  loading: false
+  loadingDetail: false
 })
 
 /* ------------- Reducers ------------- */
 
 // getDataRequest
-export const requestData = (state) => state.merge({ loading: true })
+export const requestData = (state) => state.merge({ loadingDetail: true })
 
 // getDataSuccess
 export const successData = (state, { data }) =>
-  state.merge({ loading: false, error: null, data })
+  state.merge({ loadingDetail: false, error: null, data })
 
 // getDataFail
 export const failData = (state, {error}) => 
-  state.merge({ loading: false, error })
+  state.merge({ loadingDetail: false, error })
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.GET_DATA_REQUEST]: requestData,
-  [Types.GET_DATA_SUCCESS]: successData,
-  [Types.GET_DATA_FAIL]: failData
+  [Types.GET_DATA_REQUEST_DETAIL]: requestData,
+  [Types.GET_DATA_SUCCESS_DETAIL]: successData,
+  [Types.GET_DATA_FAIL_DETAIL]: failData
 })
 

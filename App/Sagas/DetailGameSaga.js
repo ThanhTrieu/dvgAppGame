@@ -7,8 +7,8 @@ export function * getDataDetailGame (api, payload) {
   // make the call to the api
   const response = yield call(api.getDataDetailGame, id)
   if(response.ok){
-    yield put(DetailGameActions.getDataSuccess(response.data))
+    yield put(DetailGameActions.getDataSuccessDetail(response.data))
   } else {
-    yield put(DetailGameActions.getDataFail('WRONG'))
+    yield put(DetailGameActions.getDataFailDetail('WRONG'))
   }
 }
