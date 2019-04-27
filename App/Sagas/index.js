@@ -11,6 +11,8 @@ import { getTopPostsInGroupBoxTypes } from '../Redux/HomeTopFocusRedux'
 import { getTopGameByTagTypes } from '../Redux/HomeTopGameTagRedux'
 import { getDataHomeStreamTypes } from '../Redux/HomeStreamRedux'
 import { getDetailGameTypes } from '../Redux/DetailGameRedux'
+import { getTopGameByCatTypes } from '../Redux/CatTopGameRedux'
+import { TemperatureTypes } from '../Redux/CustomSearchRedux'
 /* ------------- Sagas ------------- */
 
 //import { startup } from './StartupSagas'
@@ -19,6 +21,8 @@ import { getDataHomeTopFocusGroupBox } from './HomeTopFocusSaga'
 import { getDataHomeTopGameTags } from './HomeTopGameTagSaga'
 import { getDataHomeStreaming } from './HomeStreamSaga'
 import { getDataDetailGame } from './DetailGameSaga'
+import { getDataTopCateGameBySlug } from './CateTopGameSaga'
+import { getDataSearchGameByKeyword } from './CustomSearchSaga'
 
 
 /* ------------- API ------------- */
@@ -41,5 +45,7 @@ export default function * root () {
     takeLatest(getTopGameByTagTypes.GET_DATA_REQUEST_TAGS, getDataHomeTopGameTags, api),
     takeLatest(getDataHomeStreamTypes.GET_HOME_STREAM_REQUEST, getDataHomeStreaming, api),
     takeLatest(getDetailGameTypes.GET_DATA_REQUEST_DETAIL, getDataDetailGame, api),
+    takeLatest(getTopGameByCatTypes.GET_DATA_REQUEST_CATS, getDataTopCateGameBySlug, api),
+    takeLatest(TemperatureTypes.SEARCH, getDataSearchGameByKeyword, api)
   ])
 }

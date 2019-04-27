@@ -19,7 +19,6 @@ export default class HomeGameScreen extends Component {
   }
 
   render () {
-    //console.log(this.props)
     return (
       <View> 
         <HotTopNews props={this.props} />

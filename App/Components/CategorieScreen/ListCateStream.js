@@ -18,7 +18,7 @@ import {
 
 import jwt from 'react-native-jwt-io'
 
-const SERECT_KEY = 'dvg-react-native-v1';
+const SERECT_KEY = 'dvg-react-native-v1'
 const tokenJwt = jwt.encode(
   {
     iss: 'nguyenthanhtrieu90@gmail.com',
@@ -28,7 +28,7 @@ const tokenJwt = jwt.encode(
   SERECT_KEY
 )
 
-class HomePaging extends Component {
+class ListCateStream extends Component {
   _isMounted = false;
   constructor() {
     super();
@@ -40,13 +40,13 @@ class HomePaging extends Component {
       fetching_from_server: false,
       //Loading state used while loading more data
     };
-    this.offset = 1;
+    this.offset = 3;
     //Index of the offset to load from web API
   }
 
   componentDidMount() {
     this._isMounted = true;
-    fetch(`http://10.0.2.2:8000/api/v1/home-stream-game?page=${this.offset}`,{
+    fetch(`http://10.0.2.2:8000/api/v1/list-cate-game?page=${this.offset}&slug=${this.props.labelCate}`,{
       method: 'GET',
       headers: {
         'Cache-Control': 'no-cache',
@@ -82,7 +82,7 @@ class HomePaging extends Component {
     this._isMounted = true;
   //On click of Load More button We will call the web API again
     this.setState({ fetching_from_server: true }, () => {
-      fetch(`http://10.0.2.2:8000/api/v1/home-stream-game?page=${this.offset}`,{
+      fetch(`http://10.0.2.2:8000/api/v1/list-cate-game?page=${this.offset}&slug=${this.props.labelCate}`,{
         method: 'GET',
         headers: {
           'Cache-Control': 'no-cache',
@@ -113,7 +113,7 @@ class HomePaging extends Component {
   render() {
     const navigation = this.props.navigation
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, styles.listCate]}>
         {this.state.loading ? (
           <ActivityIndicator size="large" animating />
         ) : (
@@ -125,40 +125,22 @@ class HomePaging extends Component {
             onEndReachedThreshold={0.5}
             renderItem={({ item, index }) => (
               <View >
-                { item.focus_status == 1 ? (
-                  <TouchableOpacity style={styles.listItem} onPress={()=>navigation.navigate('Detail',{postId: item.post_id})}>
-                    <View>
-                      <Image
-                        width={Dimensions.get('window').width/3}
-                        source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }}
-                      />
-                    </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={styles.title} note numberOfLines={2}>
-                        {item.title}
-                      </Text>
-                      <Text style={styles.subtitle} note numberOfLines={3}>
-                        {item.sapo}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>) : (
-                  <TouchableOpacity style={styles.frearuted} onPress={()=>navigation.navigate('Detail',{postId: item.post_id})}>
-                    <View style={{flex: 1}}>
-                      <Image
-                        width={Dimensions.get('window').width}
-                        source={{ uri: 'https://img.gurugamer.com/crop/450x268/2019/02/21/maxresdefault-1-14e8.jpg' }}
-                      />
-                    </View>
-                    <View style={{ flex: 1 }}>
-                      <Text style={styles.title} note numberOfLines={2}>
-                        {item.title}
-                      </Text>
-                      <Text style={styles.subtitle} note numberOfLines={3}>
-                        {item.sapo}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>)
-                }
+                <TouchableOpacity style={styles.listItem} onPress={()=>navigation.navigate('Detail',{postId: item.post_id})}>
+                  <View>
+                    <Image
+                      width={Dimensions.get('window').width/3}
+                      source={{ uri: 'https://img.gurugamer.com/crop/218x143/2019/03/05/tyler-ninja-blevins-fortnite-interview-4186.jpg' }}
+                    />
+                  </View>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.title} note numberOfLines={2}>
+                      {item.title}
+                    </Text>
+                    <Text style={styles.subtitle} note numberOfLines={3}>
+                      {item.sapo}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             )}
             ItemSeparatorComponent={() => <View style={styles.separator} />}
@@ -172,4 +154,4 @@ class HomePaging extends Component {
   }
 }
 
-export default withUnmounted(HomePaging);
+export default withUnmounted(ListCateStream);

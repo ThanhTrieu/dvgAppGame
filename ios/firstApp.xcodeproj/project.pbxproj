@@ -83,6 +83,7 @@
 		89CE3DD387384072AD8FDB0A /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2D7B2E74CEB242C0B0220FDB /* rubicon-icon-font.ttf */; };
 		109CF859C0BB4FDAA73A6EB3 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6564EF0FA8D74784938C0B8E /* SimpleLineIcons.ttf */; };
 		F58BA7A61B8248ECBCD1DD65 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2FF13030E1D4721B2AA9330 /* Zocial.ttf */; };
+		A0EF7B94CA914BC89C77FA2B /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFB86F678484917B1D1578F /* libRNReanimated.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -444,6 +445,8 @@
 		2D7B2E74CEB242C0B0220FDB /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6564EF0FA8D74784938C0B8E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C2FF13030E1D4721B2AA9330 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CBA001737F2F4694A220B358 /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; name = "RNReanimated.xcodeproj"; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		9DFB86F678484917B1D1578F /* libRNReanimated.a */ = {isa = PBXFileReference; name = "libRNReanimated.a"; path = "libRNReanimated.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -481,6 +484,7 @@
 				CBDD30EE77BF49A988F122D7 /* libTcpSockets.a in Frameworks */,
 				42FB59CE100843A396295892 /* libUdpSockets.a in Frameworks */,
 				F37EA98D5E79478B8ABE1074 /* libRNCWebView.a in Frameworks */,
+				A0EF7B94CA914BC89C77FA2B /* libRNReanimated.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +684,7 @@
 				45684502667647289E4DC534 /* TcpSockets.xcodeproj */,
 				DFA71157A4714A8DB431A756 /* UdpSockets.xcodeproj */,
 				7F26326635764ACA8CA44995 /* RNCWebView.xcodeproj */,
+				CBA001737F2F4694A220B358 /* RNReanimated.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1395,6 +1400,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1408,6 +1414,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Debug;
@@ -1442,6 +1449,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1455,6 +1463,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Release;
@@ -1487,6 +1496,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Debug;
@@ -1518,6 +1528,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Release;
@@ -1560,6 +1571,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1573,6 +1585,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Debug;
@@ -1615,6 +1628,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1628,6 +1642,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Release;
@@ -1669,6 +1684,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1682,6 +1698,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Debug;
@@ -1723,6 +1740,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1736,6 +1754,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-tcp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-udp\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-webview\ios",
+					"$(SRCROOT)\..\node_modules\react-native-reanimated\ios/**",
 				);
 			};
 			name = Release;

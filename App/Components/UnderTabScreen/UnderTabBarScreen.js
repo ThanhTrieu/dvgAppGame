@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    // margin: 10,
   },
   instructions: {
     textAlign: 'center',
@@ -98,7 +98,7 @@ class UnderTabBarScreen extends Component {
   }));
   render() {
     return (
-      <View style={[styles.container, { paddingTop: 20 }]}>
+      <View style={[styles.container]}>
         <ScrollableTabView
           renderTabBar={() => (
             <TabBar

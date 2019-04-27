@@ -12,7 +12,9 @@ export const reducers = combineReducers({
   topGroupBox: require('./HomeTopFocusRedux').reducer,
   topGameTag: require('./HomeTopGameTagRedux').reducer,
   homeStream: require('./HomeStreamRedux').reducer,
-  detailNews: require('./DetailGameRedux').reducer
+  detailNews: require('./DetailGameRedux').reducer,
+  cateGame: require('./CatTopGameRedux').reducer,
+  searchGames: require('./CustomSearchRedux').reducer
 })
 
 export default () => {

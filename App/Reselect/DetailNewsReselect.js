@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect'
 
-const appDataSelector = state => state.detailNews
+const appDataSelectorDetail = state => state.detailNews
 
 const detailNewsSelector = () =>
-  createSelector (appDataSelector,subState => subState.data)
+  createSelector (appDataSelectorDetail,subState => subState.data)
 
 const loadingDetailNews = () =>
-  createSelector(appDataSelector,subState => subState.loadingDetail)
+  createSelector(appDataSelectorDetail,subState => subState.loadingDetail)
 
 export {
   detailNewsSelector,
